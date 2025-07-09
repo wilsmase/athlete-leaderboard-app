@@ -61,3 +61,42 @@ speed-leaderboard/
 ├── static/
 │ ├── style.css # CSS styles
 │ └── script.js # JavaScript for live updates
+
+
+---
+
+## 📦 How to Run It Locally
+
+1. Clone this repo:
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/speed-leaderboard.git
+    cd speed-leaderboard
+    ```
+
+2. (Optional) Create and activate a virtual environment:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # or venv\Scripts\activate on Windows
+    ```
+
+3. Install Flask:
+    ```bash
+    pip install flask
+    ```
+
+4. Run the app:
+    ```bash
+    python app.py
+    ```
+
+5. Open your browser and go to `http://localhost:5000`
+
+---
+
+## 📥 Sample CSV Upload Format
+
+```csv
+name,drill,score
+Wilson,40-yd,4.55
+Jordan,beep-test,13.2
+Kai,vert,31
