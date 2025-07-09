@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend+Deca:wght@100..900&family=Lilita+One&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap');
+/**************************************
+General
+**************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/**************************************
+Header
+**************************************/
+
+header {
+    background-color: rgb(29, 0, 110);
+    color: white;
+    text-align: center;
+    padding: 60px;
+}
+
+header h1 {
+    font-size: 50pt;
+    margin-bottom: 40px;
+}
+
+header a {
+    text-decoration: none;
+    background-color: tomato;
+    color: white;
+    padding: 10px;
+    transition: 500ms ease;
+    border-radius: 25px;
+}
+
+header a:hover {
+    transform: scale(1.1);
+}
+
+/**************************************
+Athlete Information
+**************************************/
+.form {
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 25pt;
+}
+
+.form input,select {
+    border-radius: 15px;
+    width: 300px;
+    height: 50px;
+    box-sizing: border-box;
+    font-size: 12.5pt;
+}
+
+button {
+    text-decoration: none;
+    background-color: tomato;
+    color: white;
+    padding: 10px;
+    transition: 400ms ease;
+    border-radius: 25px;
+    border: #fff;
+}
+
+button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+/**************************************
+Leaderboards
+**************************************/
+.ldbds {
+    background-color: tomato;
+    color: #fff;
+}
+
+.ldbds h1 {
+    text-align: center;
+    font-size: 30pt;
+    padding-top: 50px;
+}
+
+.leaderboards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 100px;
+    flex-wrap: wrap;
+}
+
+.leaderboards h1 {
+    text-align: center;
+    font-size: 50pt;
+}
+
+.leaderboards .leaderboard {
+    width: 300px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 25px;
+
+    color: black;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* soft light angle */
+    box-shadow:
+        8px 8px 15px rgba(0, 0, 0, 0.15);
+
+    padding: 20px;
+    margin: 25px 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.leaderboard:hover {
+    transform: scale(1.02);
+    box-shadow:
+        12px 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboards .leaderboard h2 {
+    color: rgb(29, 0, 110);
+}
+
+
+table {
+    width: 100%;
+    border: 1px solid rgb(29, 0, 110);
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: rgb(29, 0, 110); /* match your header */
+    color: white;
+    z-index: 1;
+}
+
+tr:nth-child(even) {
+    background-color: #cccbcb;
+}
+
+tr:nth-child(odd) {
+    background-color: coral;
+}
+
+.reset {
+    text-align: center;
+}
+
+.csv {
+    text-align: center;
+}
+
+.csv-input::file-selector-button {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+}

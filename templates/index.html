@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runs Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Runs Leaderboard</h1>
+        <a href="#leaderboards">See where you stand</a>
+    </header>
+    <div class="form">
+        <form action="/submit" method="POST">
+            <label for="a-name">Athlete Name</label>
+            <br>
+            <input type="text" name="a-name" id="a-name">
+            <br>
+            <br>
+
+            <label for="drill">Drill</label>
+            <br>
+            <select name="drill" id="drill">
+                <option value="40-yd">40 yard dash</option>
+                <option value="10-fly">10 yard fly</option>
+                <option value="20-fly">20 yard fly</option>
+                <option value="beep-test">Beep test</option>
+                <option value="vert">Vertical Jump</option>
+            </select>
+            <br>
+            <br>
+
+            <label for="a-data">Athlete Data</label>
+            <br>
+            <input type="number" step="0.01" name="a-data" id="a-data">
+            
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <form class="csv" action="/upload_csv" method="POST" enctype="multipart/form-data">
+        <br><br>
+
+        <label>Upload CSV:</label>
+        <div class="csv-input">
+            <input type="file" name="csv_file" accept=".csv">
+            <br><br>
+            <button type="submit">Upload File</button>
+        </div>
+    </form>
+    <div class="ldbds" id="leaderboards">
+        <h1>Leaderboards</h1>
+        <div class="leaderboards">
+            <div class="leaderboard" id="vert">
+                <h2>Vertical Jump</h2>
+                <table>
+                    <thead><tr><th>#</th><th>Name</th><th>Result</th></tr></thead>
+                    <tbody>
+                        {% for entry in leaderboards['vert'] %}
+                            <tr>
+                            <td>{{ loop.index }}</td> <!-- Rank -->
+                            <td>{{ entry[1] }}</td>   <!-- Name -->
+                            <td>{{ entry[3] }}</td>   <!-- Result -->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="leaderboard" id="40-yd">
+                <h2>40 Yard Dash</h2>
+                <table>
+                    <thead><tr><th>#</th><th>Name</th><th>Result</th></tr></thead>
+                    <tbody>
+                        {% for entry in leaderboards['40-yd'] %}
+                            <tr>
+                            <td>{{ loop.index }}</td> <!-- Rank -->
+                            <td>{{ entry[1] }}</td>   <!-- Name -->
+                            <td>{{ entry[3] }}</td>   <!-- Result -->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="leaderboard" id="10-fly">
+                <h2>10 Yard Fly</h2>
+                <table>
+                    <thead><tr><th>#</th><th>Name</th><th>Result</th></tr></thead>
+                    <tbody>
+                        {% for entry in leaderboards['10-fly'] %}
+                            <tr>
+                            <td>{{ loop.index }}</td> <!-- Rank -->
+                            <td>{{ entry[1] }}</td>   <!-- Name -->
+                            <td>{{ entry[3] }}</td>   <!-- Result -->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="leaderboard" id="20-fly">
+                <h2>20 Yard Fly</h2>
+                <table>
+                    <thead><tr><th>#</th><th>Name</th><th>Result</th></tr></thead>
+                    <tbody>
+                        {% for entry in leaderboards['20-fly'] %}
+                            <tr>
+                            <td>{{ loop.index }}</td> <!-- Rank -->
+                            <td>{{ entry[1] }}</td>   <!-- Name -->
+                            <td>{{ entry[3] }}</td>   <!-- Result -->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="leaderboard" id="beep-test">
+                <h2>Beep Test</h2>
+                <table>
+                    <thead><tr><th>#</th><th>Name</th><th>Result</th></tr></thead>
+                    <tbody>
+                        {% for entry in leaderboards['beep-test'] %}
+                            <tr>
+                            <td>{{ loop.index }}</td> <!-- Rank -->
+                            <td>{{ entry[1] }}</td>   <!-- Name -->
+                            <td>{{ entry[3] }}</td>   <!-- Result -->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="reset">
+            <form action="/reset" method="get" onsubmit="return confirm('Are you sure you want to reset the leaderboard?');">
+                <button type="submit">RESET LEADERBOARDS</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</html>
